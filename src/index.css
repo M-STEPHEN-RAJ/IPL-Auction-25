@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold;
+  }
+}
+
+/* Custom Classes */
+@layer components {
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-sm border border-white/20 shadow-glass rounded-lg;
+  }
+  
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-md border border-white/30 shadow-glass rounded-xl;
+  }
+  
+  .ipl-gradient {
+    @apply bg-gradient-to-r from-ipl-blue via-ipl-purple to-ipl-orange;
+  }
+  
+  .shimmer {
+    @apply relative overflow-hidden;
+  }
+  
+  .shimmer::after {
+    content: '';
+    @apply absolute top-0 -left-[100%] right-0 bottom-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer;
+  }
+  
+  .player-card {
+    @apply p-4 transition-all duration-300 hover:shadow-md hover:-translate-y-1;
+  }
+  
+  .page-transition {
+    @apply animate-fade-in;
+  }
+  
+  .btn-ipl {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200 
+    bg-ipl-blue text-white hover:bg-ipl-blue/90 active:scale-95
+    focus:outline-none focus:ring-2 focus:ring-ipl-blue/50 focus:ring-offset-2;
+  }
+  
+  .btn-admin {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200
+    bg-ipl-purple text-white hover:bg-ipl-purple/90 active:scale-95
+    focus:outline-none focus:ring-2 focus:ring-ipl-purple/50 focus:ring-offset-2;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-2 rounded-md border border-gray-300
+    focus:outline-none focus:ring-2 focus:ring-ipl-blue focus:border-transparent
+    transition-all duration-200;
+  }
+  
+  .nav-link {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200
+    hover:bg-ipl-light active:scale-95;
+  }
+  
+  .nav-link.active {
+    @apply bg-ipl-light text-ipl-blue font-semibold;
+  }
+  
+  /* Enhanced Loading animation for IPL trophy */
+  .ipl-trophy {
+    @apply relative w-32 h-32 mx-auto;
+  }
+  
+  .trophy-base {
+    @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-20 h-5 bg-gradient-to-r from-yellow-500 to-yellow-300 rounded-md animate-pulse;
+  }
+  
+  .trophy-cup {
+    @apply absolute bottom-5 left-1/2 -translate-x-1/2 w-16 h-20 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-t-full animate-glow;
+  }
+  
+  .trophy-handles {
+    @apply absolute bottom-16 w-24 h-10 left-1/2 -translate-x-1/2;
+  }
+  
+  .trophy-handle-left {
+    @apply absolute left-0 w-5 h-10 border-4 border-yellow-500 rounded-l-full animate-swing-left;
+  }
+  
+  .trophy-handle-right {
+    @apply absolute right-0 w-5 h-10 border-4 border-yellow-500 rounded-r-full animate-swing-right;
+  }
+  
+  .sparkle {
+    @apply absolute bg-white rounded-full animate-sparkle;
+  }
+  
+  .confetti {
+    @apply absolute w-2 h-2 animate-confetti-fall;
+  }
+  
+  /* Scrollbar customization */
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Spotlight effect for cards */
+  .spotlight {
+    @apply relative overflow-hidden before:absolute before:inset-0 before:bg-spotlight before:opacity-0 before:transition-opacity hover:before:opacity-100;
+  }
+  
+  /* Team color accents */
+  .team-accent-mi {
+    @apply border-l-4 border-blue-500;
+  }
+  
+  .team-accent-csk {
+    @apply border-l-4 border-yellow-500;
+  }
+  
+  .team-accent-rcb {
+    @apply border-l-4 border-red-600;
+  }
+  
+  .team-accent-kkr {
+    @apply border-l-4 border-purple-600;
+  }
+  
+  .team-accent-dc {
+    @apply border-l-4 border-blue-600;
+  }
+  
+  .team-accent-pbks {
+    @apply border-l-4 border-red-500;
+  }
+  
+  .team-accent-rr {
+    @apply border-l-4 border-pink-500;
+  }
+  
+  .team-accent-srh {
+    @apply border-l-4 border-orange-500;
+  }
+  
+  /* Card gradients */
+  .card-gradient-1 {
+    @apply bg-gradient-to-br from-blue-50 via-blue-100 to-blue-50;
+  }
+  
+  .card-gradient-2 {
+    @apply bg-gradient-to-br from-green-50 via-green-100 to-green-50;
+  }
+  
+  .card-gradient-3 {
+    @apply bg-gradient-to-br from-yellow-50 via-yellow-100 to-yellow-50;
+  }
+  
+  .card-gradient-4 {
+    @apply bg-gradient-to-br from-red-50 via-red-100 to-red-50;
+  }
+  
+  .card-gradient-5 {
+    @apply bg-gradient-to-br from-purple-50 via-purple-100 to-purple-50;
+  }
+}
+
+/* Loading animations - keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(150px) rotate(90deg); opacity: 0; }
+}
+
+@keyframes spotlight {
+  0% { background-position: -100% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+@keyframes glow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+
+@keyframes sparkle {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+@keyframes swing-left {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-5deg); }
+}
+
+@keyframes swing-right {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+}
