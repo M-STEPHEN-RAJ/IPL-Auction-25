@@ -416,7 +416,7 @@ export const playersData: Player[] = [
 },
 {    "id": 40,
     "name": 'JACK FRASER-MCGURK', //12
-    "image": "/FOREIGN_BATTERS/JACFRASER-MCGURK.png",        
+    "image": "/FOREIGN_BATTERS/JACKFRASER-MCGURK.png",        
     "country": 'Australia',
     "isIndian": false,
     "role": 'batsman',
@@ -557,7 +557,7 @@ export const playersData: Player[] = [
 },
 {    "id": 54,
     "name": 'NAMAN DHIR', //14
-    "image": "/INDIAN_ALLROUNDERS/namandhir.png",        
+    "image": "/INDIAN_ALLROUNDERS/namanhir.png",        
     "country": 'India',
     "isIndian": true,
     "role": 'all_rounder',
@@ -568,7 +568,7 @@ export const playersData: Player[] = [
 // Overseas All-Rounders starts
 {    "id": 55,
     "name": 'ANDRE RUSSEL', //1
-    "image": "/FOREIGN_ALLROUNDERS/andrrussel.png",        
+    "image": "/FOREIGN_ALLROUNDERS/andrerussel.png",        
     "country": 'West Indies',
     "isIndian": false,
     "role": 'all_rounder',
